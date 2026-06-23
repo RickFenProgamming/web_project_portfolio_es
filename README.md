@@ -1,34 +1,54 @@
-#Triple Espresso
+# Portafolio personal — Juan Carlos Rodríguez Sánchez
 
-Triple Espresso es una página web para una cafetería ficticia desarrollada como parte del programa de Desarrollo Web de TripleTen.
+## Descripción del proyecto
 
-El sitio permite a los visitantes conocer información básica sobre la cafetería, consultar horarios de atención, realizar una reserva mediante un formulario y acceder a las redes sociales del establecimiento.
+Este proyecto es un portafolio personal desarrollado como parte del Sprint 4 del programa de Desarrollo Web de TripleTen.
 
-Tecnologías utilizadas
-HTML5
-CSS3
-Flexbox
-Metodología BEM
-Google Fonts
-Git
-GitHub
-Aprendizajes obtenidos
+El sitio funciona como una tarjeta de presentación digital donde muestro mi perfil profesional, habilidades, proyectos destacados y enlaces de contacto. El objetivo principal es presentar mi progreso como desarrollador web en formación y construir una base real para mi presencia profesional en línea.
 
-Durante el desarrollo de este proyecto puse en práctica los siguientes conocimientos:
+## Funcionalidad
 
-Estructuración semántica de páginas web con HTML.
-Organización y reutilización de estilos mediante CSS.
-Uso de Flexbox para la distribución y alineación de elementos.
-Creación y validación de formularios HTML.
-Aplicación de la metodología BEM para mantener un código más ordenado y escalable.
-Gestión de versiones mediante Git.
-Publicación y sincronización de proyectos con GitHub.
-Planes de mejora
+El portafolio incluye:
 
-En futuras versiones me gustaría implementar:
+- Sección de presentación personal.
+- Foto de perfil.
+- Sección de perfil y habilidades.
+- Tarjetas de proyectos destacados.
+- Enlaces a GitHub, LinkedIn y correo electrónico.
+- Diseño responsivo para escritorio, tablet y móvil.
+- Estados hover en enlaces, botones y tarjetas.
+- Efectos visuales con degradados, overlays y subrayados personalizados.
 
-Diseño responsive para dispositivos móviles y tabletas.
-Validación avanzada del formulario mediante JavaScript.
-Integración con un sistema real de reservas.
-Animaciones y transiciones que mejoren la experiencia de usuario.
-Mejoras de accesibilidad siguiendo estándares web modernos.
+## Tecnologías y técnicas utilizadas
+
+- HTML5 semántico
+- CSS3
+- Metodología BEM
+- Flexbox
+- CSS Grid
+- Media queries
+- Diseño responsivo
+- Fuentes locales con `@font-face`
+- Degradados radiales
+- Overlay con `linear-gradient`
+- `aspect-ratio` para imágenes de proyectos
+- Git y GitHub
+- GitHub Pages
+
+## Enlace a GitHub Pages
+
+https://rickfenprogamming.github.io/web_project_portfolio_es/
+
+## Autor
+
+Juan Carlos Rodríguez Sánchez
+
+## Planes de mejora
+
+En futuras versiones me gustaría:
+
+- Añadir más proyectos reales conforme avance en mi formación.
+- Conectar cada tarjeta con su repositorio y demo publicada.
+- Crear un CV descargable en PDF.
+- Mejorar la accesibilidad del sitio.
+- Optimizar aún más las imágenes para mejorar el rendimiento.
