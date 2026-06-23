@@ -4,6 +4,7 @@
     url("../fonts/OpenSans-Regular.woff2") format("woff2"),
     url("../fonts/OpenSans-Regular.woff") format("woff");
   font-weight: 400;
+  font-display: swap;
 }
 
 @font-face {
@@ -12,6 +13,7 @@
     url("../fonts/OpenSans-SemiBold.woff2") format("woff2"),
     url("../fonts/OpenSans-SemiBold.woff") format("woff");
   font-weight: 600;
+  font-display: swap;
 }
 
 @font-face {
@@ -20,6 +22,7 @@
     url("../fonts/OpenSans-Bold.woff2") format("woff2"),
     url("../fonts/OpenSans-Bold.woff") format("woff");
   font-weight: 700;
+  font-display: swap;
 }
 
 @font-face {
@@ -28,13 +31,15 @@
     url("../fonts/ArchivoBlack-Regular.woff2") format("woff2"),
     url("../fonts/ArchivoBlack-Regular.woff") format("woff");
   font-weight: 400;
+  font-display: swap;
 }
 
 :root {
   --color-bg: #0b0b12;
-  --color-bg-soft: #151522;
+  --color-bg-soft: #1a1a1a;
   --color-text: #ffffff;
-  --color-muted: #c7c7d9;
+  --color-muted: #d9d9d9;
+  --color-link-muted: #8f8f8f;
   --color-accent: #ff6b00;
   --color-accent-alt: #6d6dff;
   --color-border: rgba(255, 255, 255, 0.18);
@@ -83,7 +88,7 @@ a {
       transparent 280px
     ),
     radial-gradient(
-      circle at calc(50% + 420px) 520px,
+      circle at calc(50% + 420px) 720px,
       rgba(109, 109, 255, 0.28),
       transparent 340px
     ),
@@ -304,40 +309,24 @@ a {
   opacity: 0.75;
 }
 
+/* ===== PROJECTS ===== */
+
 .projects__list {
   margin-top: 48px;
   display: grid;
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 24px;
 }
 
 .project-card {
   min-width: 0;
-}
-
-.project-card__link {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr;
-  min-height: 360px;
   overflow: hidden;
-  border: 1px solid var(--color-border);
-  border-radius: 24px;
   background-color: var(--color-bg-soft);
-  text-decoration: none;
-  transition:
-    transform 0.3s ease,
-    border-color 0.3s ease;
 }
 
-.project-card__link:hover {
-  transform: translateY(-6px);
-  border-color: var(--color-accent);
-}
-
-.project-card__image-wrapper {
-  position: relative;
+.project-card__image-wrapper,
+.project-card__placeholder {
   aspect-ratio: 16 / 9;
-  min-height: 100%;
   overflow: hidden;
 }
 
@@ -346,49 +335,108 @@ a {
   height: 100%;
   display: block;
   object-fit: cover;
-  transition: transform 0.3s ease;
 }
 
-.project-card__link:hover .project-card__image {
-  transform: scale(1.05);
+.project-card__placeholder {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background:
+    radial-gradient(
+      circle at center,
+      rgba(255, 255, 255, 0.16),
+      transparent 34%
+    ),
+    linear-gradient(135deg, #5b5cff, #6d6dff);
 }
 
-.project-card__overlay {
+.project-card__code-icon {
+  width: 96px;
+  height: 96px;
+  border: 8px solid #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-family: "Archivo Black", Impact, sans-serif;
+  font-size: 34px;
+  line-height: 1;
+}
+
+.project-card__tech-icons {
   position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    transparent 35%,
-    rgba(0, 0, 0, 0.72) 100%
-  );
+  left: 16px;
+  bottom: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.project-card__tech-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-card__tech-icon_type_js {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: #f7df1e;
+  color: #000000;
+  font-weight: 700;
+}
+
+.project-card__tech-icon_type_react {
+  color: #61dafb;
+  font-size: 34px;
 }
 
 .project-card__content {
   padding: 32px;
+  background-color: #1a1a1a;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  min-height: 238px;
 }
 
 .project-card__title {
-  font-family: "Archivo Black", Impact, sans-serif;
-  font-size: 30px;
-  line-height: 1.2;
+  font-family: "Open Sans", Arial, sans-serif;
+  font-size: 24px;
+  line-height: 1.3;
+  font-weight: 700;
 }
 
 .project-card__description {
-  margin-top: 16px;
+  margin-top: 18px;
   color: var(--color-muted);
-  font-size: 18px;
+  font-size: 16px;
   line-height: 1.5;
 }
 
-.project-card__stack {
-  margin-top: 20px;
-  color: var(--color-accent);
-  font-size: 15px;
+.project-card__links {
+  margin-top: auto;
+  padding-top: 28px;
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.project-card__link {
+  color: var(--color-accent-alt);
+  font-size: 14px;
   line-height: 1.4;
-  font-weight: 700;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.project-card__link:hover {
+  opacity: 0.7;
+}
+
+.project-card__link_type_github {
+  color: var(--color-link-muted);
 }
 
 .contact__list {
@@ -424,7 +472,7 @@ a {
 
 /* TABLET */
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1023px) {
   .nav,
   .hero,
   .profile,
@@ -444,12 +492,7 @@ a {
   }
 
   .hero__role {
-    flex-direction: column;
-    gap: 4px;
-  }
-
-  .hero__separator {
-    display: none;
+    font-size: 22px;
   }
 
   .hero__description {
@@ -472,12 +515,12 @@ a {
     padding: 72px 0;
   }
 
-  .project-card__link {
-    grid-template-columns: 1fr;
+  .projects__list {
+    gap: 16px;
   }
 
-  .project-card__image-wrapper {
-    min-height: auto;
+  .project-card__content {
+    padding: 24px;
   }
 
   .section-title {
@@ -526,6 +569,12 @@ a {
 
   .hero__role {
     font-size: 20px;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .hero__separator {
+    display: none;
   }
 
   .hero__description {
@@ -562,136 +611,29 @@ a {
     font-size: 16px;
   }
 
-  .project-card__content {
-    padding: 20px;
-  }
-
   .projects__list {
-    margin-top: 48px;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
-  }
-
-  .project-card {
-    min-width: 0;
-    overflow: hidden;
-    background-color: var(--color-bg-soft);
-  }
-
-  .project-card__image-wrapper,
-  .project-card__placeholder {
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-  }
-
-  .project-card__image {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
-  }
-
-  .project-card__placeholder {
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background:
-      radial-gradient(
-        circle at center,
-        rgba(255, 255, 255, 0.12),
-        transparent 35%
-      ),
-      linear-gradient(135deg, #5b5cff, #6d6dff);
-  }
-
-  .project-card__code-icon {
-    width: 96px;
-    height: 96px;
-    border: 8px solid #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #ffffff;
-    font-family: "Archivo Black", Impact, sans-serif;
-    font-size: 34px;
-    line-height: 1;
-  }
-
-  .project-card__tech-icons {
-    position: absolute;
-    left: 16px;
-    bottom: 16px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-
-  .project-card__tech-icon {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .project-card__tech-icon_type_js {
-    width: 36px;
-    height: 36px;
-    border-radius: 4px;
-    background-color: #f7df1e;
-    color: #000000;
-    font-weight: 700;
-  }
-
-  .project-card__tech-icon_type_react {
-    color: #61dafb;
-    font-size: 34px;
+    grid-template-columns: 1fr;
+    gap: 20px;
   }
 
   .project-card__content {
-    min-height: 238px;
-    padding: 32px;
-    background-color: #1a1a1a;
-    display: flex;
-    flex-direction: column;
+    padding: 24px;
+    min-height: auto;
   }
 
   .project-card__title {
-    font-family: "Open Sans", Arial, sans-serif;
-    font-size: 24px;
-    line-height: 1.3;
-    font-weight: 700;
+    font-size: 22px;
   }
 
   .project-card__description {
-    margin-top: 18px;
-    color: var(--color-muted);
     font-size: 16px;
-    line-height: 1.5;
   }
 
-  .project-card__links {
-    margin-top: auto;
-    padding-top: 28px;
-    display: flex;
-    gap: 20px;
-    list-style-type: none;
-  }
-
-  .project-card__link {
-    color: var(--color-accent-alt);
-    font-size: 14px;
-    line-height: 1.4;
-    text-decoration: none;
-    transition: opacity 0.3s ease;
-  }
-
-  .project-card__link:hover {
-    opacity: 0.7;
-  }
-
-  .project-card__link_type_github {
-    color: #8f8f8f;
+  .project-card__code-icon {
+    width: 78px;
+    height: 78px;
+    border-width: 6px;
+    font-size: 28px;
   }
 
   .footer {
