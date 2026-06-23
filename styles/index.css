@@ -322,10 +322,16 @@ a {
   min-width: 0;
   overflow: hidden;
   background-color: var(--color-bg-soft);
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-6px);
 }
 
 .project-card__image-wrapper,
 .project-card__placeholder {
+  position: relative;
   aspect-ratio: 16 / 9;
   overflow: hidden;
 }
@@ -335,10 +341,14 @@ a {
   height: 100%;
   display: block;
   object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-card__image {
+  transform: scale(1.05);
 }
 
 .project-card__placeholder {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -391,6 +401,48 @@ a {
 .project-card__tech-icon_type_react {
   color: #61dafb;
   font-size: 34px;
+}
+
+/* Iconos superiores en hover */
+
+.project-card__actions {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+  display: flex;
+  gap: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-card__actions {
+  opacity: 1;
+}
+
+.project-card__icon-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #111111;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  line-height: 1;
+  font-weight: 700;
+  text-decoration: none;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.project-card__icon-link:hover {
+  background-color: var(--color-accent);
+  color: #111111;
+  transform: translateY(-2px);
 }
 
 .project-card__content {
@@ -634,6 +686,10 @@ a {
     height: 78px;
     border-width: 6px;
     font-size: 28px;
+  }
+
+  .project-card__actions {
+    opacity: 1;
   }
 
   .footer {
