@@ -348,6 +348,16 @@ a {
   transform: scale(1.05);
 }
 
+.project-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    transparent 35%,
+    rgba(0, 0, 0, 0.72) 100%
+  );
+}
+
 .project-card__placeholder {
   display: flex;
   justify-content: center;
@@ -402,8 +412,6 @@ a {
   color: #61dafb;
   font-size: 34px;
 }
-
-/* Iconos superiores en hover */
 
 .project-card__actions {
   position: absolute;
