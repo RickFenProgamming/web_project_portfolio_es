@@ -351,11 +351,13 @@ a {
 .project-card__overlay {
   position: absolute;
   inset: 0;
+  z-index: 1;
   background: linear-gradient(
     180deg,
     transparent 35%,
     rgba(0, 0, 0, 0.72) 100%
   );
+  pointer-events: none;
 }
 
 .project-card__placeholder {
@@ -388,6 +390,7 @@ a {
   position: absolute;
   left: 16px;
   bottom: 16px;
+  z-index: 2;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -397,6 +400,26 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.project-card__tech-icon_type_html {
+  width: 44px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: #e34f26;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.project-card__tech-icon_type_css {
+  width: 36px;
+  height: 36px;
+  border-radius: 4px;
+  background-color: #1572b6;
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
 }
 
 .project-card__tech-icon_type_js {
@@ -417,7 +440,7 @@ a {
   position: absolute;
   top: 16px;
   right: 16px;
-  z-index: 2;
+  z-index: 3;
   display: flex;
   gap: 10px;
   opacity: 0;
